@@ -1,0 +1,28 @@
+settlement a:owl/Ontology ns:https://purl.org/prozion/settlement# d:"Russian settlements with their coordinates and population. Based on dataset made by АНО ЦПУР. Data actuality: beginning of 2020."
+	namespaces
+		rdf ns:http://www.w3.org/1999/02/22-rdf-syntax-ns#
+		rdfs ns:http://www.w3.org/2000/01/rdf-schema#
+		owl ns:http://www.w3.org/2002/07/owl#
+		xsd ns:http://www.w3.org/2001/XMLSchema#
+	classes +a:owl/Class +hi-inv-rel:subclass-of
+		owl/Thing
+			Decimal
+			PositiveInteger
+			String
+		rdfs/Literal
+			Place
+				City
+				Town
+				Village
+			Country
+	properties +a:rdf/Property +hi-inv-rel:subproperty-of
+		lat domain:Place range:Decimal
+		lon domain:Place range:Decimal
+		pop domain:Place range:PositiveInteger d:"Population"
+		region domain:Place range:String
+		country domain:Place range:Country
+		working-note range:String
+	individuals
+		[russia_over_100K.tree]
+		[russia_100K_10K.tree]
+		[russia_10K_5K.tree]
