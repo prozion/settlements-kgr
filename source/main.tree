@@ -18,12 +18,16 @@ settlement a:owl/Ontology ns:https://purl.org/prozion/settlement# d:"Russian set
 	properties +a:rdf/Property +hi-inv-rel:subproperty-of
 		lat domain:Place range:Decimal
 		lon domain:Place range:Decimal
+		name domain:Place range:String
 		pop domain:Place range:PositiveInteger d:"Population"
 		region domain:Place range:String
 		country domain:Place range:Country
 		working-note range:String
 	individuals
-		[russia_over_100K.tree]
-		[russia_100K_10K.tree]
-		[russia_10K_5K.tree]
-		[russia_5K_3K.tree]
+		Россия a:Country +a:Place +hi-inv-rel:country
+			[russia_over_100K.tree]
+			[russia_100K_10K.tree]
+			[russia_10K_5K.tree]
+			[russia_5K_3K.tree]
+			[russia_3K_1K.tree]
+			[russia_1K_600.tree]
