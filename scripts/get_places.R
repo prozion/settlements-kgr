@@ -31,12 +31,13 @@ get_syns <- function(df) {
   names
 }
 
-existed_ids <- readLines("~/temp/settlements_kgr/existed_ids.txt")
+existed_ids_file <- "~/temp/settlements_kgr/existed_ids.txt"
+existed_ids <- readLines(existed_ids_file)
 
 settlements <- read.csv("~/data/settlements_2021/data.csv")
 df <- settlements %>%
       select(region, municipality, settlement, latitude, longitude, population) %>%
-      filter(population >= 1000, population < 10000) %>%
+      filter(population >= 300, population < 500) %>%
       arrange(desc(population))
 
 settlement <- str_replace_all(df$settlement, " ", "_")
@@ -52,10 +53,6 @@ for (i in 1:nrow(df)) {
   ids <- c(ids, id)
 }
 
-df$id <- ifelse(settlement %in% existed_ids,
-            ifelse(settlement_r %in% existed_ids, settlement_m_r, settlement_r),
-            settlement)
-
 tabtree <- with(df, sprintf("%s%slat:%3.6f lon:%3.6f pop:%s region:\"%s, %s\"",
                       ids,
                       ifelse(ids != settlement, sprintf(" name:\"%s\" ", settlement), " "),
@@ -64,5 +61,7 @@ tabtree <- with(df, sprintf("%s%slat:%3.6f lon:%3.6f pop:%s region:\"%s, %s\"",
                       population,
                       municipality, region))
 
-fp <- file("~/data/settlements_kgr/source/russia_10K_1K.tree", "w")
+fp <- file("~/data/settlements_kgr/source/russia_500_300.tree", "w")
 writeLines(tabtree, fp)
+
+writeLines(existed_ids, file(existed_ids_file, "w"))

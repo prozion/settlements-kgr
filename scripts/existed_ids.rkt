@@ -10,7 +10,7 @@
   (t+
     (parse-tabtree "../source/russia_over_100K.tree")
     (parse-tabtree "../source/russia_100K_10K.tree")
-    (parse-tabtree "../source/russia_10K_1K.tree")
+    ; (parse-tabtree "../source/russia_10K_1K.tree")
     ))
 
 (write-file
@@ -18,4 +18,5 @@
   (->
     all_tabtrees
     hash-keys
-    (list->pretty-string "\n")))
+    (sort a-z)
+    (list->pretty-string "\n" #:tail-sep #t)))

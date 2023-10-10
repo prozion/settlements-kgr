@@ -23,11 +23,11 @@ settlement a:owl/Ontology ns:https://purl.org/prozion/settlement# d:"Russian set
 		region domain:Place range:String
 		country domain:Place range:Country
 		working-note range:String
+		year domain:rdf/Statement range:String
 	individuals
 		Россия a:Country +a:Place +hi-inv-rel:country
 			[russia_over_100K.tree]
 			[russia_100K_10K.tree]
-			[russia_10K_5K.tree]
-			[russia_5K_3K.tree]
-			[russia_3K_1K.tree]
-			[russia_1K_600.tree]
+			[russia_10K_1K.tree]
+			[russia_1K_500.tree]
+			[russia_500_300.tree]
