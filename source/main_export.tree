@@ -1,0 +1,12 @@
+namespaces
+	rdf ns:http://www.w3.org/1999/02/22-rdf-syntax-ns#
+	rdfs ns:http://www.w3.org/2000/01/rdf-schema#
+	owl ns:http://www.w3.org/2002/07/owl#
+	xsd ns:http://www.w3.org/2001/XMLSchema#
+individuals
+	Россия a:Country +a:Place +hi-inv-rel:country
+		[russia_over_100K.tree]
+		[russia_100K_10K.tree]
+		[russia_10K_1K.tree]
+		; [russia_1K_500.tree]
+		; [russia_500_300.tree]
